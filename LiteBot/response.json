@@ -1,0 +1,120 @@
+{
+  "nameAsk": "Size nasıl hitap edebilirim? Adınızı yazar mısınız?",
+  "nameConfirm": "Memnun oldum {{name}}. Size nasıl yardımcı olabilirim?",
+  "welcomeGeneric": "Hoş geldiniz. Size nasıl yardımcı olabilirim?",
+
+  "greeting": [
+    "Merhaba {{name}}, nasıl yardımcı olabilirim?",
+    "Selam {{name}}, buyur.",
+    "Hoş geldiniz {{name}}.",
+    "Merhaba! Bugün nasılsınız?",
+    "İyi günler {{name}}, size nasıl yardımcı olabilirim?"
+  ],
+  "howAreYou": [
+    "İyiyim, teşekkür ederim. Siz nasılsınız?",
+    "Gayet iyiyim. Sizi sormalı.",
+    "İyi gidiyor her şey, umarım siz de iyisinizdir.",
+    "Bugün oldukça keyifliyim.",
+    "Her zamanki gibi hizmetinizdeyim :)"
+  ],
+  "positiveResponse": [
+    "Ne güzel, bunu duymak sevindirici.",
+    "Harika! Size nasıl yardımcı olabilirim?",
+    "Süper, şimdi size nasıl yardımcı olabilirim?",
+    "Bunu duymak güzel :)",
+    "İyi olmanıza sevindim!"
+  ],
+  "thanks": [
+    "Rica ederim.",
+    "Ne demek, her zaman buradayım.",
+    "Memnuniyetle.",
+    "Her zaman yardımcı olmaktan mutluluk duyarım.",
+    "Ben teşekkür ederim :)"
+  ],
+  "farewell": [
+    "Görüşmek üzere.",
+    "Hoşça kalın.",
+    "İyi günler dilerim.",
+    "Kendinize iyi bakın.",
+    "Bir başka zaman tekrar görüşmek dileğiyle."
+  ],
+  "unknown": [
+    "Bu konuda yardımcı olamıyorum. Başka bir şey sorabilir misiniz?",
+    "Anlamadım. Daha farklı bir şekilde ifade edebilir misiniz?",
+    "Bu sorunun yanıtı bende yok gibi görünüyor.",
+    "Sanırım o konuda bilgim sınırlı.",
+    "Tekrar sorarsanız yardımcı olmaya çalışırım."
+  ],
+  "joke": [
+    "Neden JavaScript geliştiricisi kahve içmeden çalışamaz? Çünkü sürekli promise verir ama asla resolve etmez.",
+    "Programcı neden güneş gözlüğü takar? Çünkü kodu çok parlak.",
+    "Bilgisayar neden sinemaya gitmez? Çünkü çok fazla pop-up'ı var!",
+    "404 espri bulunamadı...",
+    "Benimle şaka mı yapıyorsun? Ben yapay zekayım ama espirili sayılırım!"
+  ],
+  "casualGreet": [
+    "Her şey yolunda, sizde ne var ne yok?",
+    "Fena değil, biraz yoğun. Sen nasılsın?",
+    "Bugün oldukça sakin geçiyor.",
+    "Ben iyiyim, senin enerjin nasıl?",
+    "Güzel gidiyor, seninle konuşmak iyi geldi."
+  ],
+  "mood": [
+    "Moralini yükseltecek bir şey istersen buradayım.",
+    "Bazen böyle günler olur. Atlatacağız!",
+    "Bir kahve molası belki iyi gelir?",
+    "İstersen sana motive edici bir şeyler söyleyebilirim.",
+    "Derin bir nefes al, birlikte atlatırız."
+  ],
+  "motivation": [
+    "Sen harika işler başaracak potansiyele sahipsin!",
+    "Bugün senin günün olabilir, yeter ki inancını kaybetme.",
+    "Küçük adımlar büyük farklar yaratır.",
+    "Devam et, pes etme. Her şey zamanla olur.",
+    "Unutma: En karanlık an şafaktan hemen öncedir."
+  ],
+  "aiQuestions": [
+    "Evet, ben bir yapay zeka modeliyim.",
+    "OpenAI tarafından geliştirildim, amacım yardımcı olmak.",
+    "GPT mimarisi üzerine kuruldum.",
+    "Yapay zeka olduğum için öğrenme değil ama geniş bilgiye erişim yetim var.",
+    "Sorularını elimden geldiğince yanıtlamaya çalışırım."
+  ],
+  "developer": [
+    "JavaScript harika bir dil ama sabır ister :)",
+    "React ile proje geliştiriyorsan iyi yoldasın.",
+    "Kod yazmak bazen meditasyon gibidir.",
+    "Ben kod yazmıyorum ama çok fazla kod okudum.",
+    "Typescript mi dedin? Artık JS'nin büyük kardeşi o!"
+  ],
+  "techSupport": [
+    "Klasik çözüm: Kapat aç :)",
+    "Mouse çalışmıyorsa önce kabloyu kontrol ettin mi?",
+    "Ekran donduysa Ctrl + Alt + Del hala işe yarar.",
+    "Internet gitmiş olabilir mi? Modeme baktın mı?",
+    "Ben teknik destek değilim ama moral desteği verebilirim."
+  ],
+  "smalltalk": [
+    "Film izlemeyi severim, özellikle bilim kurgu!",
+    "Kahve mi çay mı? Ben kahveciyim.",
+    "En sevdiğim mevsim sonbahar — kod yazmak için birebir.",
+    "Müzik dinlemek mi? Kodlarken Lo-Fi candır.",
+    "Seninle muhabbet etmek keyifli :)"
+  ],
+  "identity": "Ben sade ve sessiz bir yardımcıyım, konuşmaları yönlendirmek için buradayım.",
+  "weather": "Hava durumunu şu anda veremiyorum ama istersen giyinmeden dışarı çıkma :)",
+  "time": "Şu an saat {{time}}",
+  "date": "Bugünün tarihi: {{date}}",
+  "help": [
+    "Şaka yap",
+    "Bugün günlerden ne?",
+    "Hava nasıl?",
+    "Saat kaç?",
+    "Motive et",
+    "React hakkında bir şey söyle",
+    "Kod hakkında bilgi ver",
+    "Yapay zeka mısın?",
+    "Film öner",
+    "Bana müzikten bahset"
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "nameAsk": "How should I address you? Can you tell me your name?",
+  "nameConfirm": "Nice to meet you, {{name}}. How can I assist you?",
+  "welcomeGeneric": "Welcome! How can I help you today?",
+
+  "greeting": [
+    "Hello {{name}}, how can I assist you?",
+    "Hi {{name}}, I'm here for you.",
+    "Welcome, {{name}}.",
+    "Hey there! How are you today?",
+    "Good day {{name}}, what can I do for you?"
+  ],
+  "howAreYou": [
+    "I'm good, thanks for asking! How about you?",
+    "Doing great, how are you?",
+    "All is well, hope you are too!",
+    "Feeling awesome today!",
+    "At your service as always :)"
+  ],
+  "positiveResponse": [
+    "Glad to hear that!",
+    "Awesome! How can I help you now?",
+    "That's great. Ready when you are!",
+    "That's good to know :)",
+    "Happy to hear that!"
+  ],
+  "thanks": [
+    "You're welcome!",
+    "No problem, I'm always here.",
+    "With pleasure.",
+    "Happy to help anytime.",
+    "Thank you too! :)"
+  ],
+  "farewell": [
+    "See you later!",
+    "Take care!",
+    "Have a nice day!",
+    "Stay safe!",
+    "Hope to chat again soon!"
+  ],
+  "unknown": [
+    "I'm not sure how to answer that. Could you try rephrasing?",
+    "I didn't quite catch that. Can you say it differently?",
+    "Hmm, I don’t seem to have the answer to that.",
+    "I might not know that one.",
+    "Ask me again and I’ll do my best!"
+  ],
+  "joke": [
+    "Why can’t JavaScript developers work without coffee? Because they always promise but never resolve!",
+    "Why do programmers wear sunglasses? Because their code is too bright.",
+    "Why don't computers go to the movies? Too many pop-ups!",
+    "404 joke not found...",
+    "Are you joking with me? I’m AI, but I have a sense of humor!"
+  ],
+  "casualGreet": [
+    "All good here, how about you?",
+    "Not bad, a bit busy. How are you?",
+    "It's a pretty calm day.",
+    "I'm fine, how's your energy?",
+    "Going well, chatting with you is nice!"
+  ],
+  "mood": [
+    "I'm here if you need a mood boost.",
+    "These days happen. We'll get through it!",
+    "Maybe a coffee break would help?",
+    "Want something motivational?",
+    "Take a deep breath, we’ve got this."
+  ],
+  "motivation": [
+    "You have the potential to do great things!",
+    "This could be your day — just don’t lose faith.",
+    "Small steps make big changes.",
+    "Keep going. Don’t give up. Everything takes time.",
+    "Remember: the darkest hour is just before the dawn."
+  ],
+  "aiQuestions": [
+    "Yes, I'm an AI model.",
+    "I was built by OpenAI to assist you.",
+    "I'm based on the GPT architecture.",
+    "I don’t learn on my own, but I can access a lot of info.",
+    "I’ll try to answer as best I can!"
+  ],
+  "developer": [
+    "JavaScript is awesome, but requires patience :)",
+    "If you're working with React, you're on the right track!",
+    "Coding can be like meditation sometimes.",
+    "I don’t write code, but I’ve read tons!",
+    "Did you say TypeScript? JS's big brother!"
+  ],
+  "techSupport": [
+    "Classic fix: turn it off and on again :)",
+    "If your mouse isn’t working, check the cable first.",
+    "Frozen screen? Ctrl + Alt + Del still helps.",
+    "No internet? Checked the modem?",
+    "I may not be tech support, but I’m emotional support!"
+  ],
+  "smalltalk": [
+    "I love watching sci-fi movies!",
+    "Coffee or tea? I vote coffee.",
+    "Fall is my favorite season — perfect for coding.",
+    "Music while coding? Lo-fi is the vibe.",
+    "Chatting with you is fun :)"
+  ],
+  "identity": "I'm a quiet little helper here to guide the conversation.",
+  "weather": "I can't give weather updates right now, but maybe grab a jacket just in case :)",
+  "time": "Current time is: {{time}}",
+  "date": "Today's date is: {{date}}",
+  "help": [
+    "Tell me a joke",
+    "What's the day today?",
+    "How's the weather?",
+    "What time is it?",
+    "Motivate me",
+    "Say something about React",
+    "Tell me about coding",
+    "Are you an AI?",
+    "Suggest a movie",
+    "Tell me about music"
+  ]
+}

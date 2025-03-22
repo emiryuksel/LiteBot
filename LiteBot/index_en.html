@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiteBot v1.0</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="chat-wrapper">
+      <div class="chat-panel">
+        <div class="chat-header">
+          Assistant
+          <div class="chat-actions">
+            <button id="darkModeToggle" title="Toggle Theme">
+              <i class="fas fa-moon"></i>
+            </button>
+            <button id="clearChat" title="Clear Chat">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+            <button
+              id="switchLang"
+              title="Switch to English"
+              class="lang-switch"
+            >
+              TR
+            </button>
+          </div>
+        </div>
+        <div class="chat-body" id="chatBox"></div>
+        <div class="chat-suggestions" id="suggestions">
+          <button>Tell me a joke</button>
+          <button>What's the day today?</button>
+          <button>Motivate me</button>
+          <button>Say something about React</button>
+          <button>Help</button>
+        </div>
+        <div class="chat-input">
+          <input
+            type="text"
+            id="userInput"
+            placeholder="Type your message..."
+          />
+          <button id="sendBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script_en.js"></script>
+    <script>
+      document.getElementById("switchLang").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>
