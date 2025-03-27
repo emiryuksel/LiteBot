@@ -1,14 +1,12 @@
 {
-  "nameAsk": "How should I address you? Can you tell me your name?",
-  "nameConfirm": "Nice to meet you, {{name}}. How can I assist you?",
   "welcomeGeneric": "Welcome! How can I help you today?",
 
   "greeting": [
-    "Hello {{name}}, how can I assist you?",
-    "Hi {{name}}, I'm here for you.",
-    "Welcome, {{name}}.",
+    "Hello, how can I assist you?",
+    "Hi, I'm here for you.",
+    "Welcome!",
     "Hey there! How are you today?",
-    "Good day {{name}}, what can I do for you?"
+    "Good day, what can I do for you?"
   ],
   "howAreYou": [
     "I'm good, thanks for asking! How about you?",

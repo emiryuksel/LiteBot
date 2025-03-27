@@ -1,14 +1,12 @@
 {
-  "nameAsk": "Size nasıl hitap edebilirim? Adınızı yazar mısınız?",
-  "nameConfirm": "Memnun oldum {{name}}. Size nasıl yardımcı olabilirim?",
   "welcomeGeneric": "Hoş geldiniz. Size nasıl yardımcı olabilirim?",
 
   "greeting": [
-    "Merhaba {{name}}, nasıl yardımcı olabilirim?",
-    "Selam {{name}}, buyur.",
-    "Hoş geldiniz {{name}}.",
+    "Merhaba, nasıl yardımcı olabilirim?",
+    "Selam, buyur.",
+    "Hoş geldiniz.",
     "Merhaba! Bugün nasılsınız?",
-    "İyi günler {{name}}, size nasıl yardımcı olabilirim?"
+    "İyi günler, size nasıl yardımcı olabilirim?"
   ],
   "howAreYou": [
     "İyiyim, teşekkür ederim. Siz nasılsınız?",

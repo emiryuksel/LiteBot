@@ -1,115 +1,117 @@
+const responses = {};
 const chatBox = document.getElementById("chatBox");
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const suggestions = document.getElementById("suggestions");
+const notificationSound = new Audio("notification.wav");
 
-let userName = "";
+let soundEnabled = false;
 
-function appendMessage(content, sender = "bot") {
-  const message = document.createElement("div");
-  message.classList.add("message", sender);
-  message.textContent = content;
-  chatBox.appendChild(message);
-  chatBox.scrollTop = chatBox.scrollHeight;
-
-  const audio = new Audio("notification.wav");
-  if (sender === "bot") audio.play();
-}
-
-function getTimeString() {
-  return new Date().toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
-function getDateString() {
-  return new Date().toLocaleDateString("en-US");
-}
-
-let responses = {};
+document.body.addEventListener(
+  "click",
+  () => {
+    notificationSound.play().catch(() => {});
+    soundEnabled = true;
+  },
+  { once: true }
+);
 
 fetch("response_en.json")
   .then((res) => res.json())
   .then((data) => {
-    responses = data;
-    appendMessage(responses.welcomeGeneric);
+    Object.assign(responses, data);
+    botReply(responses.welcomeGeneric);
   });
 
-function getResponse(input) {
-  input = input.toLowerCase();
-
-  if (!userName) {
-    userName = input;
-    return responses.nameConfirm.replace("{{name}}", userName);
-  }
-
-  if (input.includes("hello") || input.includes("hi")) {
-    return random(responses.greeting).replace("{{name}}", userName);
-  }
-
-  if (input.includes("how are you")) {
-    return random(responses.howAreYou);
-  }
-
-  if (input.includes("joke")) {
-    return random(responses.joke);
-  }
-
-  if (input.includes("motivate")) {
-    return random(responses.motivation);
-  }
-
-  if (input.includes("react")) {
-    return random(responses.developer);
-  }
-
-  if (input.includes("help")) {
-    return responses.help.join(", ");
-  }
-
-  if (input.includes("thank")) {
-    return random(responses.thanks);
-  }
-
-  if (input.includes("bye") || input.includes("see you")) {
-    return random(responses.farewell);
-  }
-
-  if (input.includes("what time")) {
-    return responses.time.replace("{{time}}", getTimeString());
-  }
-
-  if (input.includes("what day") || input.includes("date")) {
-    return responses.date.replace("{{date}}", getDateString());
-  }
-
-  return random(responses.unknown);
-}
-
-function random(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
-sendBtn.addEventListener("click", () => {
-  const input = userInput.value.trim();
-  if (!input) return;
-
-  appendMessage(input, "user");
-  setTimeout(() => {
-    appendMessage(getResponse(input));
-  }, 600);
-
-  userInput.value = "";
-});
-
-userInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") sendBtn.click();
+sendBtn.addEventListener("click", sendMessage);
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendMessage();
 });
 
 suggestions.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
-    userInput.value = e.target.textContent;
-    sendBtn.click();
+    userInput.value = e.target.innerText;
+    sendMessage();
   }
+});
+
+function sendMessage() {
+  const message = userInput.value.trim();
+  if (!message) return;
+  printMessage(message, "user");
+  userInput.value = "";
+  getBotResponse(message.toLowerCase());
+}
+
+function getBotResponse(msg) {
+  let response = getMatchingResponse(msg);
+  botReply(response);
+}
+
+function getMatchingResponse(msg) {
+  if (
+    msg.includes("hello") ||
+    msg.includes("hi") ||
+    msg.includes("what's up") ||
+    msg.includes("sup") ||
+    msg.includes("yo")
+  )
+    return getRandom(responses.greeting);
+
+  if (msg.includes("game of thrones") || msg.includes("got"))
+    return "Winter is coming... ❄️";
+  if (msg.includes("buğra")) return "borç -5K 💸";
+  if (msg.includes("can")) return "artık kırmızı yeme birader!";
+
+  if (msg.includes("thank")) return getRandom(responses.thanks);
+  if (msg.includes("bye") || msg.includes("see you"))
+    return getRandom(responses.farewell);
+  if (msg.includes("joke")) return getRandom(responses.joke);
+  if (msg.includes("motivate") || msg.includes("motivation"))
+    return getRandom(responses.motivation);
+  if (msg.includes("mood")) return getRandom(responses.mood);
+  if (msg.includes("react") || msg.includes("code"))
+    return getRandom(responses.developer);
+  if (msg.includes("ai") || msg.includes("artificial"))
+    return getRandom(responses.aiQuestions);
+  if (msg.includes("help")) return responses.help.join(", ");
+  if (msg.includes("movie")) return getRandom(responses.smalltalk);
+  if (msg.includes("music")) return getRandom(responses.smalltalk);
+  if (msg.includes("weather")) return responses.weather;
+  if (msg.includes("time"))
+    return responses.time.replace("{{time}}", new Date().toLocaleTimeString());
+  if (msg.includes("date") || msg.includes("day"))
+    return responses.date.replace("{{date}}", new Date().toLocaleDateString());
+
+  return getRandom(responses.unknown);
+}
+
+function botReply(text) {
+  setTimeout(() => {
+    printMessage(text, "bot");
+    if (soundEnabled) {
+      notificationSound.currentTime = 0;
+      notificationSound.play().catch(() => {});
+    }
+  }, 500);
+}
+
+function printMessage(text, sender) {
+  const msg = document.createElement("div");
+  msg.className = `message ${sender}`;
+  msg.innerText = text;
+  chatBox.appendChild(msg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function getRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+document.getElementById("darkModeToggle").addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+});
+
+document.getElementById("clearChat").addEventListener("click", () => {
+  chatBox.innerHTML = "";
 });
