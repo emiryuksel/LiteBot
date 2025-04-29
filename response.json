@@ -80,7 +80,7 @@
   ],
   "developer": [
     "JavaScript harika bir dil ama sabır ister :)",
-    "React ile proje geliştiriyorsan iyi yoldasın.",
+    "JavaScript ile proje geliştiriyorsan iyi yoldasın.",
     "Kod yazmak bazen meditasyon gibidir.",
     "Ben kod yazmıyorum ama çok fazla kod okudum.",
     "Typescript mi dedin? Artık JS'nin büyük kardeşi o!"
@@ -114,5 +114,32 @@
     "Yapay zeka mısın?",
     "Film öner",
     "Bana müzikten bahset"
+  ],
+  "musicSuggest": [
+    "The Weeknd'in son şarkılarına göz atmanı öneririm.",
+    "Michael Jackson? Popun kralı asla şaşırtmaz!",
+    "Pink Floyd dinledin mi hiç? Efsane bir klasik!",
+    "Kod yazarken Lo-fi dinlemek gibisi yok.",
+    "Enerjik bir şeyler mi arıyorsun? Dua Lipa veya Imagine Dragons olabilir."
+  ],
+  "movieSuggest": [
+    "Yüzüklerin Efendisi'ni izlemediysen hemen başlamalısın, bir klasik!",
+    "Interstellar zamanı sorgulatan bir başyapıt, mutlaka izlenmeli.",
+    "Inception'u izlerken kafan karışabilir ama sonuna kadar değer.",
+    "Prestij (The Prestige), büyü ve rekabet temalı harika bir film.",
+    "Whiplash, müzik tutkusu ve disiplinin çarpıcı bir örneği.",
+    "Daha eğlenceli bir şey arıyorsan Back to the Future iyi gider.",
+    "Joker karakteriyle seni sorgulatacak derin bir yapım.",
+    "Parasite hem eleştirisiyle hem hikayesiyle çok çarpıcı."
+  ],
+  "seriesSuggest": [
+    "Game of Thrones entrikaları ve ejderhalarıyla sürükleyici bir dizi.",
+    "Breaking Bad, hikayesiyle seni içine çekecek karanlık ama etkileyici bir dizi.",
+    "The Office ya da Brooklyn Nine-Nine gülmek için birebir!",
+    "Dark, zaman yolculuğunu sevenler için eşsiz bir Alman dizisi.",
+    "Friends veya How I Met Your Mother nostalji ve sıcaklık dolu.",
+    "Sherlock dizisi zekice kurgusuyla çok etkileyici.",
+    "Stranger Things hem korku hem bilim kurgu severler için harika.",
+    "La Casa de Papel, aksiyon ve plan sevenler için mükemmel bir seçim."
   ]
 }

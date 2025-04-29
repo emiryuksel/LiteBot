@@ -114,5 +114,32 @@
     "Are you an AI?",
     "Suggest a movie",
     "Tell me about music"
+  ],
+  "musicSuggest": [
+    "You should definitely check out The Weeknd's latest hits.",
+    "Michael Jackson? The king of pop never disappoints!",
+    "Have you tried some Pink Floyd? Timeless classics.",
+    "Lo-fi beats are perfect for studying or coding!",
+    "Try Dua Lipa or Imagine Dragons if you want something upbeat."
+  ],
+  "movieSuggest": [
+    "Lord of the Rings is a fantasy masterpiece — a must-watch!",
+    "Interstellar will bend your mind in the best way possible.",
+    "Inception is complex but absolutely brilliant.",
+    "The Prestige is a mind game between two magicians — amazing.",
+    "Whiplash shows obsession and passion in the most intense way.",
+    "Back to the Future is a fun and timeless sci-fi ride.",
+    "Joker makes you think about society and self — deep stuff.",
+    "Parasite is a powerful commentary wrapped in brilliant storytelling."
+  ],
+  "seriesSuggest": [
+    "Game of Thrones has drama, dragons, and betrayal — what more do you need?",
+    "Breaking Bad is a gripping story about transformation and choices.",
+    "The Office and Brooklyn Nine-Nine are perfect for some good laughs.",
+    "Dark is a mind-bending German series about time travel.",
+    "Friends and How I Met Your Mother never get old — classics!",
+    "Sherlock with Benedict Cumberbatch is clever and addictive.",
+    "Stranger Things is a fun mix of horror, sci-fi, and nostalgia.",
+    "Money Heist (La Casa de Papel) is thrilling and full of surprises."
   ]
 }

@@ -3,14 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiteBot v1.1</title>
+    <title>LiteBot v1.2</title>
     <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <link rel="shortcut icon" type="image/png" href="../../icon.png" />
   </head>
   <body>
+    <header class="header">
+      <div class="header-left">
+        <a href="../../.." class="home-link">Emir Yüksel</a>
+      </div>
+    </header>
+
     <div class="chat-wrapper">
       <div class="chat-panel">
         <div class="chat-header">
@@ -36,8 +43,12 @@
           <button>Şaka yap</button>
           <button>Bugün günlerden ne?</button>
           <button>Motive et</button>
-          <button>React hakkında bir şey söyle</button>
+          <button>JS hakkında bir şey söyle</button>
           <button>Yardım</button>
+          <button>Film öner</button>
+          <button>Dizi öner</button>
+          <button>Müzik öner</button>
+          <button>Modumu yükselt</button>
         </div>
         <div class="chat-input">
           <input type="text" id="userInput" placeholder="Mesajınızı yazın..." />
@@ -49,7 +60,7 @@
     <script src="script.js"></script>
     <script>
       document.getElementById("switchLang").addEventListener("click", () => {
-        window.location.href = "index_en.html";
+        window.location.href = "./en/";
       });
     </script>
   </body>

@@ -3,14 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LiteBot v1.1</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>LiteBot v1.2</title>
+    <link rel="stylesheet" href="../style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <link rel="shortcut icon" type="image/png" href="../../../icon.png" />
   </head>
   <body>
+    <header class="header">
+      <div class="header-left">
+        <a href="../../../../" class="home-link">Emir Yüksel</a>
+      </div>
+    </header>
+
     <div class="chat-wrapper">
       <div class="chat-panel">
         <div class="chat-header">
@@ -36,8 +43,12 @@
           <button>Tell me a joke</button>
           <button>What's the day today?</button>
           <button>Motivate me</button>
-          <button>Say something about React</button>
+          <button>About JavaScript</button>
           <button>Help</button>
+          <button>Suggest movie</button>
+          <button>Suggest series</button>
+          <button>Suggest music</button>
+          <button>Boost my mood</button>
         </div>
         <div class="chat-input">
           <input
@@ -50,10 +61,10 @@
       </div>
     </div>
 
-    <script src="script_en.js"></script>
+    <script src="../script_en.js"></script>
     <script>
       document.getElementById("switchLang").addEventListener("click", () => {
-        window.location.href = "index.html";
+        window.location.href = "../";
       });
     </script>
   </body>

@@ -3,24 +3,29 @@ const chatBox = document.getElementById("chatBox");
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const suggestions = document.getElementById("suggestions");
+
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 const notificationSound = new Audio("notification.wav");
 
 let soundEnabled = false;
+let isBotResponding = false;
 
-document.body.addEventListener(
-  "click",
-  () => {
-    notificationSound.play().catch(() => {});
-    soundEnabled = true;
-  },
-  { once: true }
-);
+if (!isMobile) {
+  document.body.addEventListener(
+    "click",
+    () => {
+      // İlk tıklamada ses ÇALMAYACAK, sadece izin verilecek
+      soundEnabled = true;
+    },
+    { once: true }
+  );
+}
 
 fetch("response.json")
   .then((res) => res.json())
   .then((data) => {
     Object.assign(responses, data);
-    botReply(responses.welcomeGeneric);
+    botReply(responses.welcomeGeneric, true); // İlk mesaj sessiz
   });
 
 sendBtn.addEventListener("click", sendMessage);
@@ -36,67 +41,98 @@ suggestions.addEventListener("click", (e) => {
 });
 
 function sendMessage() {
+  if (isBotResponding) return;
+
   const message = userInput.value.trim();
   if (!message) return;
+
+  isBotResponding = true;
   printMessage(message, "user");
   userInput.value = "";
   getBotResponse(message.toLowerCase());
 }
 
 function getBotResponse(msg) {
-  let response = getMatchingResponse(msg);
+  const response = getMatchingResponse(msg);
   botReply(response);
 }
 
 function getMatchingResponse(msg) {
-  if (
-    msg.includes("merhaba") ||
-    msg.includes("selam") ||
-    msg.includes("naber") ||
-    msg.includes("nasılsın") ||
-    msg.includes("selamun aleyküm")
-  )
+  if (msg.includes("merhaba") || msg.includes("selam"))
     return getRandom(responses.greeting);
+
+  if (msg.includes("teşekkür") || msg.includes("sağ ol"))
+    return getRandom(responses.thanks);
 
   if (msg.includes("game of thrones") || msg.includes("got"))
     return "Winter is coming... ❄️";
   if (msg.includes("buğra")) return "borç -5K 💸";
-  if (msg.includes("can")) return "artık kırmızı yeme birader!";
-
-  if (msg.includes("teşekkür")) return getRandom(responses.thanks);
+  if (msg.includes("can")) return "Artık kırmızı yeme be birader!";
   if (
-    msg.includes("görüşürüz") ||
-    msg.includes("bay") ||
-    msg.includes("hoşça kal")
+    msg.includes("halflife") ||
+    msg.includes("gman") ||
+    msg.includes("g-man") ||
+    msg.includes("gordon") ||
+    msg.includes("half life")
   )
-    return getRandom(responses.farewell);
+    return "Rise and shine Mr.Freeman, rise and shine.";
+
   if (msg.includes("şaka")) return getRandom(responses.joke);
+  if (
+    msg.includes("naber") ||
+    msg.includes("nasılsın") ||
+    msg.includes("iyi misin")
+  )
+    return getRandom(responses.casualGreet);
+
   if (msg.includes("motive")) return getRandom(responses.motivation);
   if (msg.includes("moral") || msg.includes("mod"))
     return getRandom(responses.mood);
-  if (msg.includes("react") || msg.includes("kod"))
+
+  if (msg.includes("js") || msg.includes("kod") || msg.includes("javascript"))
     return getRandom(responses.developer);
-  if (msg.includes("yapay zeka") || msg.includes("ai"))
+
+  if (msg.includes("yapay") || msg.includes("zeka"))
     return getRandom(responses.aiQuestions);
+
   if (msg.includes("yardım")) return responses.help.join(", ");
-  if (msg.includes("film")) return getRandom(responses.smalltalk);
-  if (msg.includes("müzik")) return getRandom(responses.smalltalk);
+
+  if (msg.includes("müzik") || msg.includes("şarkı") || msg.includes("dinle"))
+    return getRandom(responses.musicSuggest);
+
+  if (msg.includes("film")) return getRandom(responses.movieSuggest);
+
+  if (msg.includes("dizi") || msg.includes("seyret") || msg.includes("bölüm"))
+    return getRandom(responses.seriesSuggest);
+
   if (msg.includes("hava")) return responses.weather;
+
   if (msg.includes("saat"))
     return responses.time.replace("{{time}}", new Date().toLocaleTimeString());
-  if (msg.includes("gün") || msg.includes("tarih"))
+
+  if (msg.includes("tarih") || msg.includes("gün"))
     return responses.date.replace("{{date}}", new Date().toLocaleDateString());
 
   return getRandom(responses.unknown);
 }
 
-function botReply(text) {
+function botReply(text, forceSilent = false) {
+  const typingMsg = document.createElement("div");
+  typingMsg.className = "message bot typing";
+  typingMsg.innerText = "Bot yazıyor...";
+  chatBox.appendChild(typingMsg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
   setTimeout(() => {
+    typingMsg.remove();
     printMessage(text, "bot");
-    if (soundEnabled) {
+
+    if (!forceSilent && soundEnabled && !isMobile) {
       notificationSound.currentTime = 0;
       notificationSound.play().catch(() => {});
     }
+
+    isBotResponding = false;
   }, 500);
 }
 

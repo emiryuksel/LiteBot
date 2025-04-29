@@ -3,24 +3,29 @@ const chatBox = document.getElementById("chatBox");
 const userInput = document.getElementById("userInput");
 const sendBtn = document.getElementById("sendBtn");
 const suggestions = document.getElementById("suggestions");
-const notificationSound = new Audio("notification.wav");
+
+const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const notificationSound = new Audio("../notification.wav");
 
 let soundEnabled = false;
+let isBotResponding = false;
 
-document.body.addEventListener(
-  "click",
-  () => {
-    notificationSound.play().catch(() => {});
-    soundEnabled = true;
-  },
-  { once: true }
-);
+// 🔇 Only enable sound permission on desktop, no sound on first click
+if (!isMobile) {
+  document.body.addEventListener(
+    "click",
+    () => {
+      soundEnabled = true; // DO NOT play sound here!
+    },
+    { once: true }
+  );
+}
 
-fetch("response_en.json")
+fetch("../response_en.json")
   .then((res) => res.json())
   .then((data) => {
     Object.assign(responses, data);
-    botReply(responses.welcomeGeneric);
+    botReply(responses.welcomeGeneric, true); // Silent first message
   });
 
 sendBtn.addEventListener("click", sendMessage);
@@ -36,15 +41,19 @@ suggestions.addEventListener("click", (e) => {
 });
 
 function sendMessage() {
+  if (isBotResponding) return;
+
   const message = userInput.value.trim();
   if (!message) return;
+
+  isBotResponding = true;
   printMessage(message, "user");
   userInput.value = "";
   getBotResponse(message.toLowerCase());
 }
 
 function getBotResponse(msg) {
-  let response = getMatchingResponse(msg);
+  const response = getMatchingResponse(msg);
   botReply(response);
 }
 
@@ -60,8 +69,16 @@ function getMatchingResponse(msg) {
 
   if (msg.includes("game of thrones") || msg.includes("got"))
     return "Winter is coming... ❄️";
-  if (msg.includes("buğra")) return "borç -5K 💸";
-  if (msg.includes("can")) return "artık kırmızı yeme birader!";
+  if (msg.includes("buğra")) return "debt -5K 💸";
+  if (msg.includes("can")) return "stop eating red stuff, bro!";
+  if (
+    msg.includes("halflife") ||
+    msg.includes("gman") ||
+    msg.includes("g-man") ||
+    msg.includes("gordon") ||
+    msg.includes("half life")
+  )
+    return "Rise and shine Mr.Freeman, rise and shine.";
 
   if (msg.includes("thank")) return getRandom(responses.thanks);
   if (msg.includes("bye") || msg.includes("see you"))
@@ -70,13 +87,21 @@ function getMatchingResponse(msg) {
   if (msg.includes("motivate") || msg.includes("motivation"))
     return getRandom(responses.motivation);
   if (msg.includes("mood")) return getRandom(responses.mood);
-  if (msg.includes("react") || msg.includes("code"))
+  if (msg.includes("js") || msg.includes("code") || msg.includes("javascript"))
     return getRandom(responses.developer);
   if (msg.includes("ai") || msg.includes("artificial"))
     return getRandom(responses.aiQuestions);
   if (msg.includes("help")) return responses.help.join(", ");
-  if (msg.includes("movie")) return getRandom(responses.smalltalk);
-  if (msg.includes("music")) return getRandom(responses.smalltalk);
+
+  if (msg.includes("music") || msg.includes("song") || msg.includes("listen"))
+    return getRandom(responses.musicSuggest);
+
+  if (msg.includes("movie") || msg.includes("film"))
+    return getRandom(responses.movieSuggest);
+
+  if (msg.includes("series") || msg.includes("tv"))
+    return getRandom(responses.seriesSuggest);
+
   if (msg.includes("weather")) return responses.weather;
   if (msg.includes("time"))
     return responses.time.replace("{{time}}", new Date().toLocaleTimeString());
@@ -86,13 +111,23 @@ function getMatchingResponse(msg) {
   return getRandom(responses.unknown);
 }
 
-function botReply(text) {
+function botReply(text, forceSilent = false) {
+  const typingMsg = document.createElement("div");
+  typingMsg.className = "message bot typing";
+  typingMsg.innerText = "Bot is typing...";
+  chatBox.appendChild(typingMsg);
+  chatBox.scrollTop = chatBox.scrollHeight;
+
   setTimeout(() => {
+    typingMsg.remove();
     printMessage(text, "bot");
-    if (soundEnabled) {
+
+    if (!forceSilent && soundEnabled && !isMobile) {
       notificationSound.currentTime = 0;
       notificationSound.play().catch(() => {});
     }
+
+    isBotResponding = false;
   }, 500);
 }
 
