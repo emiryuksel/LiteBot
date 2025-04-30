@@ -56,7 +56,7 @@ Toggle dark/light mode anytime using the moon icon in the top right corner 🌙
 - ✅ Edge
 - ✅ Safari
 
-Works great on both desktop and mobile!
+Works perfect on both desktop and mobile!
 
 ---
 
