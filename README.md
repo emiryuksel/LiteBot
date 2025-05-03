@@ -6,6 +6,12 @@ It supports **multiple languages (Turkish + English)** and offers a simple, resp
 
 ---
 
+## 🚀 Live Demo
+
+> https://emiryuksel.site/projects/litebot
+
+---
+
 ## 🚀 Features
 
 - 🌍 Multilingual: Turkish and English versions included
