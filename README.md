@@ -12,7 +12,7 @@ It supports **multiple languages (Turkish + English)** and offers a simple, resp
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
 - 🌍 Multilingual: Turkish and English versions included
 - 💬 Predefined responses from local JSON files
