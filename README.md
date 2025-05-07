@@ -8,7 +8,7 @@ It supports **multiple languages (Turkish + English)** and offers a simple, resp
 
 ## 🚀 Live Demo
 
-> https://emiryuksel.site/projects/litebot
+> https://emiryuksel.site/en/projects/litebot
 
 ---
 
